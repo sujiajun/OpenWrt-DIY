@@ -13,12 +13,6 @@
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 
-#echo "替换文件"
-rm -rf ./target/linux/ramips/image/mt7621.mk
-rm -rf ./target/linux/ramips/base-files/etc/board.d/02_network
-cp -f ./diy/target/linux/ramips/dts/mt7621_zte_e8820s.dts openwrt/target/linux/ramips/dts/
-cp -f ./diy/target/linux/ramips/image/mt7621.mk openwrt/target/linux/ramips/image/
-cp -f ./diy/target/linux/ramips/base-files/etc/board.d/02_network openwrt/target/linux/ramips/base-files/etc/board.d/
 
 # 清除旧版argon主题并拉取最新版
 pushd ../package/lean
