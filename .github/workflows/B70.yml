@@ -79,9 +79,7 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
-        if [ -n "$(ls -A "$GITHUB_WORKSPACE/build/diy" 2>/dev/null)" ]; then
-         cp -Rf $GITHUB_WORKSPACE/build/diy/* $GITHUB_WORKSPACE/openwrt/
-        fi
+        cp -Rf $GITHUB_WORKSPACE/build/diy/* $GITHUB_WORKSPACE/openwrt/
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
