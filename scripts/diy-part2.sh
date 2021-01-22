@@ -30,6 +30,11 @@ rm -rf autocore
 svn co https://github.com/project-openwrt/openwrt/branches/18.06-kernel5.4/package/lean/autocore
 popd
 
+# Fix mt76 wireless driver
+pushd package/kernel/mt76
+sed -i '/mt7662u_rom_patch.bin/a\\techo mt76-usb disable_usb_sg=1 > $\(1\)\/etc\/modules.d\/mt76-usb' Makefile
+popd
+
 # Add mentohust & luci-app-mentohust.
 git clone --depth=1 https://github.com/BoringCat/luci-app-mentohust
 git clone --depth=1 https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk
