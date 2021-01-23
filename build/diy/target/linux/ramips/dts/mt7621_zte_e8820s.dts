@@ -10,8 +10,8 @@
 	model = "ZTE E8820S";
 
 	aliases {
-+		led-boot = &led_wps;
-+		led-failsafe = &led_wps;
+		led-boot = &led_wps;
+		led-failsafe = &led_wps;
 	};
 
 	chosen {
