@@ -31,7 +31,7 @@
 
 		led_power:power {
 			label = "e8820s:white:power";
-			gpios = <&gpio 31 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio 3 GPIO_ACTIVE_LOW>;
 		};
 	};
 
@@ -45,7 +45,7 @@
 		};
                wps {
                      label = "wps";
-                     gpios = <&gpio 24 GPIO_ACTIVE_LOW>;
+                     gpios = <&gpio 8 GPIO_ACTIVE_LOW>;
                      linux,code = <KEY_WPS_BUTTON>;
                      };
 	};
@@ -124,7 +124,7 @@
 	mt76@0,0 {
 		reg = <0x0000 0 0 0 0>;
 		mediatek,mtd-eeprom = <&factory 0x0000>;
-		ieee80211-freq-limit = <2400000 2500000>;
+
              led {
                   led-sources = <2>;
                   led-active-low;
