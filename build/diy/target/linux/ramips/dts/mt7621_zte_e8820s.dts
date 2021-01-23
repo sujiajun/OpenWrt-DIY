@@ -1,3 +1,4 @@
+
 /dts-v1/;
 
 #include "mt7621.dtsi"
@@ -10,8 +11,10 @@
 	model = "ZTE E8820S";
 
 	aliases {
-		led-boot = &led_wps;
-		led-failsafe = &led_wps;
+		led-boot = &led_system;
+		led-failsafe = &led_system;
+		led-running = &led_status;
+		led-upgrade = &led_status;
 	};
 
 	chosen {
@@ -25,6 +28,12 @@
 			label = "e8820s:white:status";
 			gpios = <&gpio 6 GPIO_ACTIVE_LOW>;
 		};
+
+		led_system: system {
+			label = "e8820s:red:system";
+			gpios = <&gpio 7 GPIO_ACTIVE_LOW>;
+			panic-indicator;
+		};
 	};
 
 	keys {
@@ -32,7 +41,7 @@
 
 		reset {
 			label = "reset";
-			gpios = <&gpio 18 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio 18 GPIO_ACTIVE_HIGH>;
 			linux,code = <KEY_RESTART>;
 		};
 	};
@@ -120,11 +129,6 @@
 		reg = <0x0000 0 0 0 0>;
 		mediatek,mtd-eeprom = <&factory 0x8000>;
 		ieee80211-freq-limit = <5000000 6000000>;
-
-        led {
-			led-sources = <2>;
-			led-active-low;
-		};
 	};
 };
 
@@ -156,7 +160,6 @@
 	};
 };
 
-};
 &state_default {
 	gpio {
 		groups = "uart3", "jtag";
