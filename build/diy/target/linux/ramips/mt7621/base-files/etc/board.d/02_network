@@ -178,10 +178,8 @@ ramips_setup_macs()
 		label_mac=$(mtd_get_mac_binary factory 0x4)
 		;;
         zte,e8820s)
-   		lan_mac=$(mtd_get_mac_ascii bdinfo "Vfac_mac ")
-		label_mac=$lan_mac
-		[ -n "$lan_mac" ] || lan_mac=$(cat /sys/class/net/eth0/address)
-		wan_mac=$(macaddr_add "$lan_mac" 1)
+   		lan_mac=$(cat /sys/class/net/wlan0/address)
+                label_mac=$lan_mac
 		;;
 	esac
 
