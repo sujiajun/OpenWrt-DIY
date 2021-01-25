@@ -1195,15 +1195,6 @@ endef
 TARGET_DEVICES += zio_freezio
 
 define Device/zte_e8820s
-  IMAGE_SIZE := 32768k
-  DEVICE_VENDOR := ZTE
-  DEVICE_MODEL := E8820S
-  DEVICE_PACKAGES := \
-    kmod-mt7603 kmod-mt76x2 kmod-usb3 kmod-usb-ledtrig-usbport wpad luci
-endef
-TARGET_DEVICES += zte_e8820s
-
-define Device/zte_e8820s
   BLOCKSIZE := 128k
   PAGESIZE := 2048
   KERNEL_SIZE := 4096k
