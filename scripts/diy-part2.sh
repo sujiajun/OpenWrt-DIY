@@ -14,7 +14,10 @@
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 
 # 修改主机名字，把OpenWrt-123修改你喜欢的就行（不能使用中文）
-sed -i '/uci commit system/i\uci set system.@system[0].hostname='ZTE-E8820S'' package/default-settings/files/zzz-default-settings
+#sed -i '/uci commit system/i\uci set system.@system[0].hostname='ZTE-E8820S'' package/default-settings/files/zzz-default-settings
+
+#修改wifi名称
+#sed -i "s/OpenWrt/ZTE-E8820S/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 
 # Clone community packages to package/community
