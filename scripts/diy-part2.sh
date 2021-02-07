@@ -1,3 +1,4 @@
+
 #!/bin/bash
 #
 # Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
@@ -13,16 +14,12 @@
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
 
-# 修改主机名字，把OpenWrt-123修改你喜欢的就行（不能使用中文）
-#sed -i '/uci commit system/i\uci set system.@system[0].hostname='ZTE-E8820S'' package/default-settings/files/zzz-default-settings
-
-#修改wifi名称
-#sed -i "s/OpenWrt/ZTE-E8820S/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
-
-
 # Clone community packages to package/community
 mkdir package/community
 pushd package/community
+
+# Add Lienol's Packages
+git clone --depth=1 https://github.com/Lienol/openwrt-package
 
 # Add luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall
@@ -49,8 +46,7 @@ git clone --depth=1 -b master https://github.com/vernesong/OpenClash
 git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
 
 # Add luci-app-adguardhome
-svn co https://github.com/project-openwrt/openwrt/trunk/package/ctcgfw/luci-app-adguardhome
-svn co https://github.com/project-openwrt/openwrt/trunk/package/ntlf9t/AdGuardHome
+# svn co https://github.com/Lienol/openwrt/trunk/package/diy/luci-app-adguardhome
 
 # Add luci-app-diskman
 git clone --depth=1 https://github.com/SuLingGG/luci-app-diskman
@@ -88,6 +84,13 @@ git clone --depth=1 https://github.com/zcy85611/openwrt-luci-kcp-udp
 
 # Add OpenAppFilter
 git clone --depth=1 https://github.com/destan19/OpenAppFilter
+
+# Add luci-app-oled (R2S Only)
+git clone --depth=1 https://github.com/NateLol/luci-app-oled
+
+# Add driver for rtl8821cu & rtl8812au-ac
+svn co https://github.com/project-openwrt/openwrt/branches/master/package/ctcgfw/rtl8812au-ac
+svn co https://github.com/project-openwrt/openwrt/branches/master/package/ctcgfw/rtl8821cu
 popd
 
 # Mod zzz-default-settings
