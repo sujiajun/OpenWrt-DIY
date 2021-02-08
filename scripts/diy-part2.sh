@@ -47,6 +47,8 @@ git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
 
 # Add luci-app-adguardhome
 # svn co https://github.com/Lienol/openwrt/trunk/package/diy/luci-app-adguardhome
+git clone https://github.com/AdguardTeam/AdGuardHome package/AdGuardHome
+git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
 
 # Add luci-app-diskman
 git clone --depth=1 https://github.com/SuLingGG/luci-app-diskman
